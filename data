@@ -1,0 +1,49 @@
+users
+- name
+- phone unique
+- cpf unique
+- email unique
+- password
+- deleted_at
+- city_id
+- role (admin, client, freelancer)
+
+skills
+- name
+- base_hourly_rate (valor base do trabalho)
+
+freelancer_cities
+- user.id(freelancer)
+- city_id
+
+freelancer_skills
+- user.id(freelancer)
+- skill_id
+- hourly_rate (valor a cobrar em media do serviço do trabalhador)
+
+cities
+- name
+- state_id
+
+states
+- name
+- code
+- country_id
+
+countries
+- name
+- code
+
+jobs
+- title
+- description
+- user.id(client)
+- user.id(freelancer)
+- skill_id
+- city_id
+- status (pendente, aceito, completo, cancelado)
+- scheduled_date
+- hourly_rate
+
+
+
