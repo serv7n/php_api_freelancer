@@ -4,9 +4,10 @@ namespace App\Http\Requests\Auth;
 
 use App\Enum\Role;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
 
-class AuthRequestNewUser extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,9 +34,9 @@ class AuthRequestNewUser extends FormRequest
     {
         return [
             "name" => "required|string",
-            "phone" => "required|unique:users,phone",
-            "email" => "required|unique:users,email",
-            "cpf" => "required|max:11|unique:users,cpf",
+            "phone" =>  "required",
+            "email" => ["required", Rule::unique("users")->ignore($this->route("id")) ],
+            "cpf" => "required|max:11",
             "password" => "required|min:8|max:255",
             "city_id" => "required|integer",
             "role"=> ["required", new Enum(Role::class)]

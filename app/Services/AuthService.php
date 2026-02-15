@@ -35,5 +35,20 @@ class AuthService
         $user =  User::find($id);
         $user->tokens()->delete();
     }
+
+    public function update($dados, $id)
+    {
+        $user = User::find($id);
+        $user->update($dados);
+        $user->tokens()->delete();
+        $token = $user->createToken('auth_token')->plainTextToken;
+        return BaseApiResource::success(["user"=>$user, "token"=>$token]);
+    }
+
+    public function delete($id){
+        $user = User::find($id);
+        $user->tokens()->delete();
+        $user->delete();
+    }
 }
 
