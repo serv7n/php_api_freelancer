@@ -26,9 +26,10 @@ class UserSeeder extends Seeder
             "name" => "admin",
             "cpf" => "01295312299",
             "email"=>"diamng@gmail.com",
-            "password" => bcrypt("123456"),
+            "password" => bcrypt("12345678"),
             "city_id" => 1,
             "role" => "admin",
         ]);
+//        1|24z83uYzYqYG9ZOJJseAvZUdXGsPfcydYj0R5ihYf7c86d44
     }
 }

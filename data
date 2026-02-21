@@ -21,18 +21,7 @@ freelancer_skills
 - skill_id
 - hourly_rate (valor a cobrar em media do serviço do trabalhador)
 
-cities
-- name
-- state_id
 
-states
-- name
-- code
-- country_id
-
-countries
-- name
-- code
 
 jobs
 - title
@@ -47,3 +36,15 @@ jobs
 
 
 
+cities
+- name
+- state_id
+
+states
+- name
+- code
+- country_id
+
+countries
+- name
+- code
