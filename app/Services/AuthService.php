@@ -63,9 +63,17 @@ class AuthService
 
     public function emailValidated($user)
     {
-        Mail::to('teste@email.com')->send(new TestEmail());
-        $user->email_verification_token = Str::random(60);
-        Mail::to($user->email)->send();
+        if($user->email_verified_at == true){
+            return true;
+        }
+        if(empty($user->email_verified_token)){
+           $code  = Str::random(60);
+           $user->email_verification_token = $code;
+       }else{
+           $user->email_verified_token =;
+       }
+
+        Mail::to($user->email)->send();;
     }
 }
 

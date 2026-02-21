@@ -18,8 +18,12 @@ class VerificationEmail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct( public  array $data)
-
+    public string $name,$code;
+    public function __construct($name, $code)
+    {
+        $this->name = $name;
+        $this->code = $code;
+    }
 
     /**
      * Get the message envelope.
@@ -37,7 +41,7 @@ class VerificationEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.verification-email',with: ["code"=>$this->$data],
+            view: 'mail.verification-email',with: ["name"=>$this->name,"code"=>$this->code],
 
         );
     }
