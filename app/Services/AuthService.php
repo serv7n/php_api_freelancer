@@ -70,7 +70,7 @@ class AuthService
            $code  = Str::random(60);
            $user->email_verification_token = $code;
        }else{
-           $user->email_verified_token =;
+           $user->email_verified_token =;aa
        }
 
         Mail::to($user->email)->send();;
